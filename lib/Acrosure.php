@@ -126,6 +126,41 @@ class TeamManager {
     }
 }
 
+class DataManager {
+    const basePath = "data";
+
+    private $httpClient;
+
+    public function __construct(APIResource $httpClient) {
+        $this->httpClient = $httpClient;
+    }
+    private function callAPI($path, $data) {
+        return $this->httpClient->callAPI(ProductManager::basePath."/".$path, $data);
+    }
+    public function get($data) {
+        return $this->callAPI("get", $data);
+    }
+}
+
+class PolicyManager {
+    const basePath = "policies";
+
+    private $httpClient;
+
+    public function __construct(APIResource $httpClient) {
+        $this->httpClient = $httpClient;
+    }
+    private function callAPI($path, $data) {
+        return $this->httpClient->callAPI(ProductManager::basePath."/".$path, $data);
+    }
+    public function get($data) {
+        return $this->callAPI("get", $data);
+    }
+    public function getList($data) {
+        return $this->callAPI("list", $data);
+    }
+}
+
 class AcrosureClient {
     const DEFAULT_ENDPOINT_BASE = 'https://api.acrosure.com';
 
@@ -148,6 +183,8 @@ class AcrosureClient {
         $this->applicationManager = new ApplicationManager($httpClient);
         $this->productManager = new ProductManager($httpClient);
         $this->teamManager = new TeamManager($httpClient);
+        $this->policyManager = new PolicyManager($httpClient);
+        $this->dataManager = new DataManager($httpClient);
     }
 
     public function getApplicationManager() {
@@ -165,7 +202,6 @@ class AcrosureClient {
     public function getDataManager() {
         return $this->getDataManager;
     }
-
 }
 
 
