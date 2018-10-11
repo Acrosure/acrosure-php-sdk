@@ -1,7 +1,5 @@
 <?php
 
-// namespace Acrosure;
-
 class APIResource {
     private $baseURL;
     private $token;
@@ -59,8 +57,8 @@ class ApplicationManager {
     public function getList($data) {
         return $this->callAPI("list", $data);
     }
-    public function get($data) {
-        return $this->callAPI("get", $data);
+    public function get($applicationId) {
+        return $this->callAPI("get", (object) ["application_id" => $application_id]);
     }
     public function create($data) {
         return $this->callAPI("create", $data);
@@ -68,20 +66,20 @@ class ApplicationManager {
     public function update($data) {
         return $this->callAPI("update", $data);
     }
-    public function getPackages($data) {
-        return $this->callAPI("get-packages", $data);
+    public function getPackages($applicationId) {
+        return $this->callAPI("get-packages", (object) ["application_id" => $applicationId]);
     }
-    public function getPackage($data) {
-        return $this->callAPI("get-package", $data);
+    public function getPackage($applicationId) {
+        return $this->callAPI("get-package", (object) ["applicaton_id" => $applicatonId]);
     }
     public function selectPackage($data) {
         return $this->callAPI("select-package", $data);
     }
-    public function submit($data) {
-        return $this->callAPI("submit", $data);
+    public function submit($applicatonId) {
+        return $this->callAPI("submit", (object) ["applicaton_id" => $applicationId]);
     }
-    public function confirm($data) {
-        return $this->callAPI("confirm", $data);
+    public function confirm($applicationId) {
+        return $this->callAPI("confirm", (object) ["applicaton_id" => $applicationId]);
     }
     public function getHash($data) {
         return $this->callAPI("get-hash", $data);
@@ -99,8 +97,8 @@ class ProductManager {
     private function callAPI($path, $data) {
         return $this->httpClient->callAPI(ProductManager::basePath."/".$path, $data);
     }
-    public function get($data) {
-        return $this->callAPI("get", $data);
+    public function get($productId) {
+        return $this->callAPI("get", (object) ["product_id" => $productId]);
     }
     public function getList($data) {
         return $this->callAPI("list", $data);
@@ -119,7 +117,7 @@ class TeamManager {
         return $this->httpClient->callAPI(ProductManager::basePath."/".$path, $data);
     }
     public function getInfo($data) {
-        return $this->callAPI("get-info", $data);
+        return $this->callAPI("get-info", (object) []);
     }
 }
 
@@ -150,8 +148,8 @@ class PolicyManager {
     private function callAPI($path, $data) {
         return $this->httpClient->callAPI(ProductManager::basePath."/".$path, $data);
     }
-    public function get($data) {
-        return $this->callAPI("get", $data);
+    public function get($policyId) {
+        return $this->callAPI("get", (object) ["policy_id" => $policyId]);
     }
     public function getList($data) {
         return $this->callAPI("list", $data);
@@ -199,7 +197,11 @@ class AcrosureClient {
     public function getDataManager() {
         return $this->getDataManager;
     }
-}
 
+    public function verifySignature($signature, $rawData) {
+        $expected = hash_hmac("sha256", json_encode($rawData), $this->token, true);
+        return $signature == $expected;
+    }
+}
 
 ?>
