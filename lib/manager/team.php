@@ -1,5 +1,7 @@
 <?php
 
+require_once dirname(__FILE__).'/resource/api.php';
+
 class TeamManager {
   const basePath = "teams";
 
