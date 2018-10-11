@@ -45,9 +45,6 @@ class APIResource {
     }
 }
 
-class ResourceManager {
-}
-
 class ApplicationManager {
     const basePath = "applications";
 
