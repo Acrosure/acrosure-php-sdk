@@ -6,16 +6,16 @@ PHP SDK for connecting with Acrosure Insurance Gateway
 
 ## Installation
 
-Install via composer:
+Install via [Composer](https://getcomposer.org/):
 
-`composer require @acrosure/php-sdk`
+`composer require acrosure/acrosure-php-sdk`
 
 ## Getting Started
 
 Import AcrosureClient into your project.
 
 ```php
-import AcrosureClient from "@acrosure/js-sdk"; // TODO
+require_once dirname(__FILE__).'/vendor/autoload.php';
 ```
 
 Instantiate with an API key from [Acrosure Dashboard](https://dashboard.acrosure.com).
