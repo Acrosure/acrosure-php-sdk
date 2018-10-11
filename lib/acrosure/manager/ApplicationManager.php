@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__).'/resource/api.php';
+require_once dirname(__FILE__).'/../resource/APIResource.php';
 
 class ApplicationManager {
   const basePath = "applications";

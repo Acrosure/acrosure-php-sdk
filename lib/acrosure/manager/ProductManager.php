@@ -1,9 +1,9 @@
 <?php
 
-require_once dirname(__FILE__).'/resource/api.php';
+require_once dirname(__FILE__).'/../resource/APIResource.php';
 
-class PolicyManager {
-  const basePath = "policies";
+class ProductManager {
+  const basePath = "products";
 
   private $httpClient;
 
@@ -13,8 +13,8 @@ class PolicyManager {
   private function callAPI($path, $data) {
       return $this->httpClient->callAPI(ProductManager::basePath."/".$path, $data);
   }
-  public function get($policyId) {
-      return $this->callAPI("get", (object) ["policy_id" => $policyId]);
+  public function get($productId) {
+      return $this->callAPI("get", (object) ["product_id" => $productId]);
   }
   public function getList($data) {
       return $this->callAPI("list", $data);

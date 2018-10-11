@@ -1,9 +1,9 @@
 <?php
 
-require_once dirname(__FILE__).'/resource/api.php';
+require_once dirname(__FILE__).'/../resource/APIResource.php';
 
-class DataManager {
-  const basePath = "data";
+class TeamManager {
+  const basePath = "teams";
 
   private $httpClient;
 
@@ -13,8 +13,8 @@ class DataManager {
   private function callAPI($path, $data) {
       return $this->httpClient->callAPI(ProductManager::basePath."/".$path, $data);
   }
-  public function get($data) {
-      return $this->callAPI("get", $data);
+  public function getInfo($data) {
+      return $this->callAPI("get-info", (object) []);
   }
 }
 
