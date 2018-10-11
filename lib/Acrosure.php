@@ -110,6 +110,21 @@ class ProductManager {
     }
 }
 
+class TeamManager {
+    const basePath = "teams";
+
+    private $httpClient;
+
+    public function __construct(APIResource $httpClient) {
+        $this->httpClient = $httpClient;
+    }
+    private function callAPI($path, $data) {
+        return $this->httpClient->callAPI(ProductManager::basePath."/".$path, $data);
+    }
+    public function getInfo($data) {
+        return $this->callAPI("get-info", $data);
+    }
+}
 
 class AcrosureClient {
     const DEFAULT_ENDPOINT_BASE = 'https://api.acrosure.com';
@@ -132,6 +147,7 @@ class AcrosureClient {
         $httpClient = new APIResource($this->endpointBase, $this->token);
         $this->applicationManager = new ApplicationManager($httpClient);
         $this->productManager = new ProductManager($httpClient);
+        $this->teamManager = new TeamManager($httpClient);
     }
 
     public function getApplicationManager() {
