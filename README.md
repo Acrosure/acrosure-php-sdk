@@ -216,11 +216,11 @@ $isSignatureValid = acrosureClient.verifySignature(
 );
 ```
 
-## Advanced Usage
+<!-- ## Advanced Usage -->
 
-Please refer to [this document](https://acrosure.github.io/acrosure-php-sdk/AcrosureClient.html) for AcrosureClient usage.
+<!-- Please refer to [this document](https://acrosure.github.io/acrosure-php-sdk/AcrosureClient.html) for AcrosureClient usage. -->
 
-And refer to [Acrosure API Document](https://docs.acrosure.com/docs/api-overall.html) for more details on Acrosure API.
+<!-- And refer to [Acrosure API Document](https://docs.acrosure.com/docs/api-overall.html) for more details on Acrosure API. -->
 
 ## Associated Acrosure API endpoints
 
