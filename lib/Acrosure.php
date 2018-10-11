@@ -6,6 +6,6 @@ require_once dirname(__FILE__).'/acrosure/manager/ProductManager.php';
 require_once dirname(__FILE__).'/acrosure/manager/TeamManager.php';
 require_once dirname(__FILE__).'/acrosure/manager/DataManager.php';
 require_once dirname(__FILE__).'/acrosure/manager/PolicyManager.php';
-require_once dirname(__FILE__).'/acrosure/client.php';
+require_once dirname(__FILE__).'/acrosure/AcrosureClient.php';
 
 ?>
