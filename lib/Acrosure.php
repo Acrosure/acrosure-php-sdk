@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__).'/api-resource.php';
+require_once dirname(__FILE__).'/resource/api.php';
 require_once dirname(__FILE__).'/manager/application.php';
 require_once dirname(__FILE__).'/manager/product.php';
 require_once dirname(__FILE__).'/manager/team.php';
