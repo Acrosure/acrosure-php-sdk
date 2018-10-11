@@ -1,11 +1,11 @@
 <?php
 
-include 'api-resource.php';
-include 'application-manager.php';
-include 'product-manager.php';
-include 'team-manager.php';
-include 'data-manager.php';
-include 'policy-manager.php';
-include 'client.php';
+require_once dirname(__FILE__).'/api-resource.php';
+require_once dirname(__FILE__).'/application-manager.php';
+require_once dirname(__FILE__).'/product-manager.php';
+require_once dirname(__FILE__).'/team-manager.php';
+require_once dirname(__FILE__).'/data-manager.php';
+require_once dirname(__FILE__).'/policy-manager.php';
+require_once dirname(__FILE__).'/client.php';
 
 ?>
