@@ -1,0 +1,28 @@
+{
+  "name": "acrosure/acrosure-php-sdk",
+  "description": "PHP SDK for connecting with Acrosure Insurance Gateway",
+  "keywords": [
+    "acrosure",
+    "sdk"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://github.com/acrosure/acrosure-php-sdk.git",
+  "authors": [
+    {
+      "name": "Acrosure",
+      "email": "dev@acrosure.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.4.*"
+  },
+  "autoload": {
+    "classmap": [
+      "lib/acrosure/"
+    ]
+  }
+}
