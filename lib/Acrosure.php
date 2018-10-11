@@ -38,6 +38,8 @@ class APIResource {
             throw $err;
         } else {
             $result = json_decode($response);
+            $json_string = json_encode($data, JSON_PRETTY_PRINT);
+            var_dump($json_string);
             return $result;
         }
     }
@@ -57,8 +59,54 @@ class ApplicationManager {
     private function callAPI($path, $data) {
         return $this->httpClient->callAPI(ApplicationManager::basePath."/".$path, $data);
     }
+    public function getList($data) {
+        return $this->callAPI("list", $data);
+    }
+    public function get($data) {
+        return $this->callAPI("get", $data);
+    }
     public function create($data) {
         return $this->callAPI("create", $data);
+    }
+    public function update($data) {
+        return $this->callAPI("update", $data);
+    }
+    public function getPackages($data) {
+        return $this->callAPI("get-packages", $data);
+    }
+    public function getPackage($data) {
+        return $this->callAPI("get-package", $data);
+    }
+    public function selectPackage($data) {
+        return $this->callAPI("select-package", $data);
+    }
+    public function submit($data) {
+        return $this->callAPI("submit", $data);
+    }
+    public function confirm($data) {
+        return $this->callAPI("confirm", $data);
+    }
+    public function getHash($data) {
+        return $this->callAPI("get-hash", $data);
+    }
+}
+
+class ProductManager {
+    const basePath = "products";
+
+    private $httpClient;
+
+    public function __construct(APIResource $httpClient) {
+        $this->httpClient = $httpClient;
+    }
+    private function callAPI($path, $data) {
+        return $this->httpClient->callAPI(ProductManager::basePath."/".$path, $data);
+    }
+    public function get($data) {
+        return $this->callAPI("get", $data);
+    }
+    public function getList($data) {
+        return $this->callAPI("list", $data);
     }
 }
 
@@ -83,6 +131,7 @@ class AcrosureClient {
         }
         $httpClient = new APIResource($this->endpointBase, $this->token);
         $this->applicationManager = new ApplicationManager($httpClient);
+        $this->productManager = new ProductManager($httpClient);
     }
 
     public function getApplicationManager() {
