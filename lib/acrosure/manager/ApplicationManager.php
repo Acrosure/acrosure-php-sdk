@@ -17,7 +17,7 @@ class ApplicationManager {
       return $this->callAPI("list", $data);
   }
   public function get($applicationId) {
-      return $this->callAPI("get", (object) ["application_id" => $application_id]);
+      return $this->callAPI("get", ["application_id" => $application_id]);
   }
   public function create($data) {
       return $this->callAPI("create", $data);
@@ -26,19 +26,19 @@ class ApplicationManager {
       return $this->callAPI("update", $data);
   }
   public function getPackages($applicationId) {
-      return $this->callAPI("get-packages", (object) ["application_id" => $applicationId]);
+      return $this->callAPI("get-packages", ["application_id" => $applicationId]);
   }
   public function getPackage($applicationId) {
-      return $this->callAPI("get-package", (object) ["applicaton_id" => $applicatonId]);
+      return $this->callAPI("get-package", ["application_id" => $applicatonId]);
   }
   public function selectPackage($data) {
       return $this->callAPI("select-package", $data);
   }
   public function submit($applicatonId) {
-      return $this->callAPI("submit", (object) ["applicaton_id" => $applicationId]);
+      return $this->callAPI("submit", ["application_id" => $applicationId]);
   }
   public function confirm($applicationId) {
-      return $this->callAPI("confirm", (object) ["applicaton_id" => $applicationId]);
+      return $this->callAPI("confirm", ["application_id" => $applicationId]);
   }
   public function getHash($data) {
       return $this->callAPI("get-hash", $data);

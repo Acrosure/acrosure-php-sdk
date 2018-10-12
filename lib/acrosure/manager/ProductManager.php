@@ -14,7 +14,7 @@ class ProductManager {
       return $this->httpClient->callAPI(ProductManager::basePath."/".$path, $data);
   }
   public function get($productId) {
-      return $this->callAPI("get", (object) ["product_id" => $productId]);
+      return $this->callAPI("get", ["product_id" => $productId]);
   }
   public function getList($data) {
       return $this->callAPI("list", $data);

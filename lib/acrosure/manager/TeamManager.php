@@ -14,7 +14,7 @@ class TeamManager {
       return $this->httpClient->callAPI(ProductManager::basePath."/".$path, $data);
   }
   public function getInfo($data) {
-      return $this->callAPI("get-info", (object) []);
+      return $this->callAPI("get-info", json_decode('{}'));
   }
 }
 
