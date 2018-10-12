@@ -1,10 +1,10 @@
 <?php
-require_once '../lib/Acrosure.php';
-// require_once dirname(__FILE__).'/vendor/autoload.php';
+// require_once '../lib/Acrosure.php';
+require_once dirname(__FILE__).'/vendor/autoload.php';
 
 $acrosureClient = new AcrosureClient([
-    "token" => "<your_api_key>",
-    "endpointBase" => "<endpoint_base>" // as optional
+    "token" => $_ENV["TEST_SECRET_TOKEN"],
+    "endpointBase" => $_ENV["TEST_API_URL"] // as optional
 ]);
 
 $applicationId = '';
