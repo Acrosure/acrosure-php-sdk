@@ -32,11 +32,12 @@ class APIResource {
         curl_close($curl);
 
         if ($err) {
+            echo $err;
             throw $err;
         } else {
             $result = json_decode($response);
-            $json_string = json_encode($data, JSON_PRETTY_PRINT);
-            var_dump($json_string);
+            // $json_string = json_encode($data, JSON_PRETTY_PRINT);
+            // var_dump($json_string);
             return $result;
         }
     }
