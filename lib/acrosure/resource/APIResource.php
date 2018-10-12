@@ -34,7 +34,7 @@ class APIResource {
         if ($err) {
             throw $err;
         } else {
-            $result = json_decode($response);
+            $result = json_decode($response, true);
             $json_string = json_encode($data, JSON_PRETTY_PRINT);
             var_dump($json_string);
             return $result;
