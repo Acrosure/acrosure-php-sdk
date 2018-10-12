@@ -1,17 +1,14 @@
 <?php
 header('Content-Type: application/json;charset=utf-8');
 
-require_once dirname(__FILE__).'/vendor/autoload.php';
+require_once '../lib/Acrosure.php';
+// require_once dirname(__FILE__).'/vendor/autoload.php';
 
 $acrosureClient = new AcrosureClient([
     "token" => $_ENV["TEST_SECRET_TOKEN"],
     "endpointBase" => $_ENV["TEST_API_URL"] // as optional
 ]);
 
-function jsonRemoveUnicodeSequences($struct) {
-    return preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($struct, JSON_PRETTY_PRINT));
-}
- 
 $applicationId = '';
 $NEWLINE = "\n";
 $APP_DATA = json_decode(file_get_contents("data.json"), false);
@@ -26,13 +23,13 @@ $resp = $acrosureClient->getApplicationManager()->create([
 
 echo $NEWLINE;
 echo '[create]'.$NEWLINE;
-echo jsonRemoveUnicodeSequences($resp).$NEWLINE;
+echo jsonRemoveUnicodeSequences($resp, true).$NEWLINE;
 echo '-------------------------------'.$NEWLINE;
 $applicationId = $resp->data->id;
 $resp = $acrosureClient->getApplicationManager()->getPackages($applicationId);
 echo $NEWLINE;
 echo '[get-packages]'.$NEWLINE;
-echo jsonRemoveUnicodeSequences($resp).$NEWLINE;
+echo jsonRemoveUnicodeSequences($resp, true).$NEWLINE;
 echo '-------------------------------'.$NEWLINE;
 $packageCode = $resp->data[0]->package_code;
 $resp = $acrosureClient->getApplicationManager()->selectPackage([
@@ -41,7 +38,7 @@ $resp = $acrosureClient->getApplicationManager()->selectPackage([
 ]);
 echo $NEWLINE;
 echo '[select-package]'.$NEWLINE;
-echo jsonRemoveUnicodeSequences($resp).$NEWLINE;
+echo jsonRemoveUnicodeSequences($resp, true).$NEWLINE;
 echo '-------------------------------'.$NEWLINE;
 $resp = $acrosureClient->getApplicationManager()->update([
     "application_id" => $applicationId,
@@ -51,13 +48,13 @@ $resp = $acrosureClient->getApplicationManager()->update([
 ]);
 echo $NEWLINE;
 echo "[update]".$NEWLINE;
-echo jsonRemoveUnicodeSequences($resp).$NEWLINE;
+echo jsonRemoveUnicodeSequences($resp, true).$NEWLINE;
 echo '-------------------------------'.$NEWLINE;
 $resp = $acrosureClient->getApplicationManager()->confirm($applicationId);
 echo $NEWLINE;
 echo '[confirm]'.$NEWLINE;
-echo jsonRemoveUnicodeSequences($resp).$NEWLINE;
+echo jsonRemoveUnicodeSequences($resp, true).$NEWLINE;
 echo '==============================='.$NEWLINE;
-echo jsonRemoveUnicodeSequences($resp).$NEWLINE;
+echo jsonRemoveUnicodeSequences($resp, true).$NEWLINE;
 echo '=============== DONE ==================='.$NEWLINE;
 ?>
