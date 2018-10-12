@@ -20,7 +20,7 @@ $resp = $acrosureClient->getApplicationManager()->create([
 ]);
 
 echo $NEWLINE;
-echo 'create: '.json_encode($resp, JSON_PRETTY_PRINT).$NEWLINE;
+echo 'create: '.json_encode($resp).$NEWLINE;
 echo '-------------------------------'.$NEWLINE;
 $applicationId = $resp->data->id;
 $resp = $acrosureClient->getApplicationManager()->getPackages($applicationId);
