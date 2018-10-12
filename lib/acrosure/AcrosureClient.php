@@ -6,6 +6,7 @@ require_once dirname(__FILE__).'/manager/ProductManager.php';
 require_once dirname(__FILE__).'/manager/TeamManager.php';
 require_once dirname(__FILE__).'/manager/DataManager.php';
 require_once dirname(__FILE__).'/manager/PolicyManager.php';
+require_once dirname(__FILE__).'/util/JSON.php';
 
 class AcrosureClient {
   const DEFAULT_ENDPOINT_BASE = 'https://api.acrosure.com';
@@ -50,7 +51,7 @@ class AcrosureClient {
   }
 
   public function verifySignature($signature, $rawData) {
-      $expected = hash_hmac("sha256", json_encode($rawData), $this->token, true);
+      $expected = hash_hmac("sha256", jsonRemoveUnicodeSequences($rawData), $this->token);
       return $signature == $expected;
   }
 }
