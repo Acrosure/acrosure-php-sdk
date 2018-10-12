@@ -1,8 +1,8 @@
 <?php
 
-define('TOKEN', 'tokn_sample_public');
-define('ENDPOINT_BASE', 'https://api.phantompage.com');
+define('TEST_SECRET_TOKEN', '<YOUR_SECRET>');
+define('TEST_API_URL', 'https://api.phantompage.com');
 
 require_once dirname(__FILE__).'/../lib/Acrosure.php';
 
-abstract class TestConfig extends PHPUnit_Framework_TestCase { }
+abstract class TestConfig extends PHPUnit_Framework_TestCase {}

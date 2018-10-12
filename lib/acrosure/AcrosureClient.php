@@ -51,7 +51,7 @@ class AcrosureClient {
   }
 
   public function verifySignature($signature, $rawData) {
-      $expected = hash_hmac("sha256", jsonRemoveUnicodeSequences($rawData), $this->token);
+      $expected = hash_hmac("sha256", jsonRemoveUnicodeSequences($rawData, false), $this->token);
       return $signature == $expected;
   }
 }
