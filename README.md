@@ -21,7 +21,7 @@ require_once dirname(__FILE__).'/vendor/autoload.php';
 Instantiate with an API key from [Acrosure Dashboard](https://dashboard.acrosure.com).
 
 ```php
-$acrosureClient = new AcrosureClient((object) [
+$acrosureClient = new AcrosureClient([
   "token" => "<your_api_key>",
   "endpointBase" => "<endpoint_base>" // as optional
 ]);
@@ -48,7 +48,7 @@ Any data will be inside an response object with `data` key, along with meta data
 Get application with specified id.
 
 ```php
-$application = acrosureClient.getApplicationManager().get("<application_id>");
+$application = $acrosureClient->getApplicationManager()->get("<application_id>");
 ```
 
 #### Create
@@ -56,11 +56,11 @@ $application = acrosureClient.getApplicationManager().get("<application_id>");
 Create an application.
 
 ```php
-$createdApplication = acrosureClient.getApplicationManager().create((object) [
+$createdApplication = $acrosureClient->getApplicationManager()->create([
   "product_id" => "<product_id>", // required
-  "basic_data" => (object) [],
-  "package_options" => (object) [],
-  "additional_data" => (object) [],
+  "basic_data" => json_decode('{}'),
+  "package_options" => json_decode('{}'),
+  "additional_data" => json_decode('{}'),
   "package_code" => "<package_code>",
   "attachments": => []
 ]);
@@ -71,11 +71,11 @@ $createdApplication = acrosureClient.getApplicationManager().create((object) [
 Update an application.
 
 ```php
-$updatedApplication = acrosureClient.getApplicationManager.update((object) [
+$updatedApplication = $acrosureClient->getApplicationManager()->update([
   "application_id" => "<application_id>", // required
-  "basic_data": (object) [],
-  "package_options": (object) [],
-  "additional_data": (object) [],
+  "basic_data": json_decode('{}'),
+  "package_options": json_decode('{}'),
+  "additional_data": json_decode('{}'),
   "package_code": "<package_code>",
   "attachments": []
 ]);
@@ -86,7 +86,7 @@ $updatedApplication = acrosureClient.getApplicationManager.update((object) [
 Get current application available packages.
 
 ```php
-$packages = acrosureClient.getApplicationManager.getPackages("<application_id>");
+$packages = $acrosureClient->getApplicationManager()->getPackages("<application_id>");
 ```
 
 #### Select package
@@ -94,7 +94,7 @@ $packages = acrosureClient.getApplicationManager.getPackages("<application_id>")
 Select package for current application.
 
 ```php
-$updatedApplication = acrosureClient.getApplicationManager.selectPackage((object) [
+$updatedApplication = $acrosureClient->getApplicationManager()->selectPackage([
   "application_id" => "<application_id>",
   "package_code" => "<package_code>"
 ]);
@@ -105,7 +105,7 @@ $updatedApplication = acrosureClient.getApplicationManager.selectPackage((object
 Get selected package of current application.
 
 ```php
-$currentPackage = acrosureClient.getApplicationManager.getPackage(
+$currentPackage = $acrosureClient->getApplicationManager()->getPackage(
   "<application_id>"
 );
 ```
@@ -115,7 +115,7 @@ $currentPackage = acrosureClient.getApplicationManager.getPackage(
 Submit current application.
 
 ```php
-$submittedApplication = acrosureClient.getApplicationManager.submit(
+$submittedApplication = $acrosureClient->getApplicationManager()->submit(
   "<application_id>"
 );
 ```
@@ -125,7 +125,7 @@ $submittedApplication = acrosureClient.getApplicationManager.submit(
 Confirm current application.
 
 ```php
-$confirmedApplication = acrosureClient.getApplicationManager.confirm(
+$confirmedApplication = $acrosureClient->getApplicationManager()->confirm(
   "<application_id>"
 );
 ```
@@ -135,7 +135,7 @@ $confirmedApplication = acrosureClient.getApplicationManager.confirm(
 List your applications (with or without query).
 
 ```php
-$applications = acrosureClient.getApplicationManager.getList(query);
+$applications = $acrosureClient->getApplicationManager()->getList(query);
 ```
 
 ### Product
@@ -145,7 +145,7 @@ $applications = acrosureClient.getApplicationManager.getList(query);
 Get product with specified id.
 
 ```php
-$product = acrosureClient.getProductManager.get("<product_id>");
+$product = $acrosureClient->getProductManager()->get("<product_id>");
 ```
 
 #### List
@@ -153,7 +153,7 @@ $product = acrosureClient.getProductManager.get("<product_id>");
 List your products (with or without query).
 
 ```php
-$products = acrosureClient.getProductManager.list(query);
+$products = $acrosureClient->getProductManager()->getList(query);
 ```
 
 ### Policy
@@ -163,7 +163,7 @@ $products = acrosureClient.getProductManager.list(query);
 Get policy with specified id.
 
 ```php
-$policy = acrosureClient.getPolicyManager.get("<policy_id>");
+$policy = $acrosureClient->getPolicyManager()->get("<policy_id>");
 ```
 
 #### List
@@ -171,7 +171,7 @@ $policy = acrosureClient.getPolicyManager.get("<policy_id>");
 List your policies (with or without query).
 
 ```php
-$policies = acrosureClient.getPolicyManager.list(query);
+$policies = $acrosureClient->getPolicyManager()->getList(query);
 ```
 
 ### Data
@@ -182,12 +182,12 @@ Get values for a handler (with or without dependencies, please refer to Acrosure
 
 ```php
 // Without dependencies
-$values = acrosureClient.getDataManager.get([
+$values = $acrosureClient->getDataManager()->get([
   "handler" => "<some_handler>"
 ]);
 
 // With dependencies
-$values = acrosureClient.getDataManager().get((object) [
+$values = $acrosureClient->getDataManager()->get([
   "handler" => "<some_handler>",
   "dependencies" => ["<dependency_1>", "<dependency_2>"]
 ]);
@@ -200,7 +200,7 @@ $values = acrosureClient.getDataManager().get((object) [
 Get current team information.
 
 ```php
-$teamInfo = acrosureClient.getTeamManager().getInfo();
+$teamInfo = $acrosureClient->getTeamManager()->getInfo();
 ```
 
 ### Other functionality
@@ -210,7 +210,7 @@ $teamInfo = acrosureClient.getTeamManager().getInfo();
 Verify webhook signature by specify signature and raw data string. (Only Node.js environment)
 
 ```php
-$isSignatureValid = acrosureClient.verifySignature(
+$isSignatureValid = $acrosureClient->verifySignature(
   "<signature>",
   "<raw_data>"
 );
