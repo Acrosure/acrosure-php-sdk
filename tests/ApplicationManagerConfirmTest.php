@@ -128,12 +128,14 @@ class ApplicationManagerConfirmTest extends TestConfig {
     public function testConfirmApplication() {
         $resp = self::$applicationManager->confirm(self::$applicationId);
         $this->assertTrue($resp->status == "ok");
-        $confirmedApp = $resp->data;
-        $this->assertTrue($resp->data->status == "CONFIRMING" || $resp->data->status == "AWAIT_POLICY" || $resp->data->status == "TENTATIVELY_ACCEPTED" );
+        $confirmedApps = $resp->data;
+        foreach($confirmedApps as $app){
+          $this->assertTrue( in_array($app->status, array("CONFIRMING", "AWAIT_POLICY", "TENTATIVELY_ACCEPTED","COMPLETED", "INSURER_COMPLETED")));
+        }
     }
 
-    public function testListAPplication() {
-      $resp = self::$applicationManager->list(self::$applicationId);
+    public function testListApplication() {
+      $resp = self::$applicationManager->getList(json_decode('{}'));
       $this->assertTrue($resp->status == "ok");
       $apps = $resp->data;
       $this->assertInternalType("array", $apps);
