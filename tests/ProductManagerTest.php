@@ -14,7 +14,7 @@ class ProductManagerTest extends TestConfig {
         self::$productManager = $client->getProductManager();
     }
 
-    public function testGetProductList() {
+    public function testListProducts() {
         $resp = self::$productManager->getList(json_decode('{}'));
         $this->assertTrue($resp->status == "ok");
         $this->assertTrue(sizeof($resp->data) > 0);
@@ -22,7 +22,7 @@ class ProductManagerTest extends TestConfig {
     }
 
     /**
-     * @depends testGetProductList
+     * @depends testListProducts
      */
     public function testGetProductDetail($products) {
         $productId = $products[0]->id;
