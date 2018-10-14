@@ -11,7 +11,7 @@ class DataManager {
       $this->httpClient = $httpClient;
   }
   private function callAPI($path, $data) {
-      return $this->httpClient->callAPI(ProductManager::basePath."/".$path, $data);
+      return $this->httpClient->callAPI(DataManager::basePath."/".$path, $data);
   }
   public function get($data) {
       return $this->callAPI("get", $data);

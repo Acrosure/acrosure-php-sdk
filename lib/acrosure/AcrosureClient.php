@@ -44,10 +44,10 @@ class AcrosureClient {
       return $this->productManager;
   }
   public function getTeamManager() {
-      return $this->getTeamManager;
+      return $this->teamManager;
   }
   public function getDataManager() {
-      return $this->getDataManager;
+      return $this->dataManager;
   }
 
   public function verifySignature($signature, $rawData) {
