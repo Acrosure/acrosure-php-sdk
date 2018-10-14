@@ -3,7 +3,7 @@
 require_once dirname(__FILE__).'/TestConfig.php';
 
 
-class ApplicationManagerTest extends TestConfig {
+class ApplicationManagerSubmitTest extends TestConfig {
     protected static $applicationManager;
     protected static $packages;
     protected static $applicationId;
