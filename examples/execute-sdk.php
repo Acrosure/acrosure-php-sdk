@@ -1,8 +1,8 @@
 <?php
 header('Content-Type: application/json;charset=utf-8');
 
-require_once '../lib/Acrosure.php';
-// require_once dirname(__FILE__).'/vendor/autoload.php';
+// require_once '../lib/Acrosure.php';
+require_once dirname(__FILE__).'/vendor/autoload.php';
 
 $acrosureClient = new AcrosureClient([
     "token" => $_ENV["TEST_SECRET_TOKEN"],
