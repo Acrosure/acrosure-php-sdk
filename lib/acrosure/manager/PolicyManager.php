@@ -11,7 +11,7 @@ class PolicyManager {
       $this->httpClient = $httpClient;
   }
   private function callAPI($path, $data) {
-      return $this->httpClient->callAPI(DataManager::basePath."/".$path, $data);
+      return $this->httpClient->callAPI(PolicyManager::basePath."/".$path, $data);
   }
   public function get($policyId) {
       return $this->callAPI("get", ["policy_id" => $policyId]);

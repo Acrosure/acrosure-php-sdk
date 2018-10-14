@@ -11,7 +11,7 @@ class TeamManager {
       $this->httpClient = $httpClient;
   }
   private function callAPI($path, $data) {
-      return $this->httpClient->callAPI(DataManager::basePath."/".$path, $data);
+      return $this->httpClient->callAPI(TeamManager::basePath."/".$path, $data);
   }
   public function getInfo($data) {
       return $this->callAPI("get-info", json_decode('{}'));
