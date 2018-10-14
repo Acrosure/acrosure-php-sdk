@@ -1,15 +1,15 @@
 {
-    "name": "acrosure/php-sdk-example",
-    "description": "A PHP example for Acrosure PHP SDK.",
-    "type": "project",
-    "require": {
-        "acrosure/acrosure-php-sdk": "^1.0"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Acrosure",
-            "email": "dev@acrosure.com"
-        }
-    ]
+  "name": "acrosure/php-sdk-example",
+  "description": "A PHP example for Acrosure PHP SDK.",
+  "type": "project",
+  "require": {
+    "acrosure/acrosure-php-sdk": "^1.0.8"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Acrosure",
+      "email": "dev@acrosure.com"
+    }
+  ]
 }
