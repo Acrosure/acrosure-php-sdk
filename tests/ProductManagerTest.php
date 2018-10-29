@@ -15,7 +15,7 @@ class ProductManagerTest extends TestConfig {
     }
 
     public function testListProducts() {
-        $resp = self::$productManager->getList(json_decode('{}'));
+        $resp = self::$productManager->getList();
         $this->assertTrue($resp->status == "ok");
         $this->assertTrue(sizeof($resp->data) > 0);
         return $resp->data;

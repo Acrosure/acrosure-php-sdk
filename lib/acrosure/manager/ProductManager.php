@@ -2,6 +2,7 @@
 
 require_once dirname(__FILE__).'/../resource/APIResource.php';
 
+
 class ProductManager {
   const basePath = "products";
 
@@ -16,7 +17,10 @@ class ProductManager {
   public function get($productId) {
       return $this->callAPI("get", ["product_id" => $productId]);
   }
-  public function getList($data) {
+  public function getList($data = NULL) {
+      if ($data == NULL) {
+        $data = json_decode('{}');
+      }
       return $this->callAPI("list", $data);
   }
 }

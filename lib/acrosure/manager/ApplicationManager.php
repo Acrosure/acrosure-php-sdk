@@ -13,7 +13,10 @@ class ApplicationManager {
   private function callAPI($path, $data) {
       return $this->httpClient->callAPI(ApplicationManager::basePath."/".$path, $data);
   }
-  public function getList($data) {
+  public function getList($data = NULL) {
+      if ($data == NULL) {
+        $data = json_decode('{}');
+      }
       return $this->callAPI("list", $data);
   }
   public function get($applicationId) {
