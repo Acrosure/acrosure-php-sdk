@@ -16,7 +16,10 @@ class PolicyManager {
   public function get($policyId) {
       return $this->callAPI("get", ["policy_id" => $policyId]);
   }
-  public function getList($data) {
+  public function getList($data = NULL) {
+      if ($data == NULL) {
+        $data = json_decode('{}');
+      }
       return $this->callAPI("list", $data);
   }
 }
