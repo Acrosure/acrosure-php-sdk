@@ -3,7 +3,7 @@
   "description": "A PHP example for Acrosure PHP SDK.",
   "type": "project",
   "require": {
-    "acrosure/acrosure-php-sdk": "^1.0.9"
+    "acrosure/acrosure-php-sdk": "^1.0.11"
   },
   "license": "MIT",
   "authors": [

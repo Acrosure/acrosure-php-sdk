@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d202caa7a7b843673ba375c617d1213",
+    "content-hash": "a63cccf65cfc90288f1320d90302caf4",
     "packages": [
         {
             "name": "acrosure/acrosure-php-sdk",
-            "version": "v1.0.8",
+            "version": "v1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Acrosure/acrosure-php-sdk.git",
-                "reference": "344e3124a8c3ff4f7d612e3455beb9b05a958915"
+                "reference": "d1365424da5bf2960339ad0d8dc23729696d586c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Acrosure/acrosure-php-sdk/zipball/344e3124a8c3ff4f7d612e3455beb9b05a958915",
-                "reference": "344e3124a8c3ff4f7d612e3455beb9b05a958915",
+                "url": "https://api.github.com/repos/Acrosure/acrosure-php-sdk/zipball/d1365424da5bf2960339ad0d8dc23729696d586c",
+                "reference": "d1365424da5bf2960339ad0d8dc23729696d586c",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": ">=5.5.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "4.4.*"
@@ -48,7 +48,7 @@
                 "acrosure",
                 "sdk"
             ],
-            "time": "2018-10-14T06:11:28+00:00"
+            "time": "2018-10-29T13:21:45+00:00"
         }
     ],
     "packages-dev": [],

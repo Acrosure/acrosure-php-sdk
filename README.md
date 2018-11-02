@@ -135,7 +135,7 @@ $confirmedApplication = $acrosureClient->getApplicationManager()->confirm(
 List your applications (with or without query).
 
 ```php
-$applications = $acrosureClient->getApplicationManager()->getList(query);
+$applications = $acrosureClient->getApplicationManager()->getList(searchParams);
 ```
 
 ### Product
@@ -153,7 +153,7 @@ $product = $acrosureClient->getProductManager()->get("<product_id>");
 List your products (with or without query).
 
 ```php
-$products = $acrosureClient->getProductManager()->getList(query);
+$products = $acrosureClient->getProductManager()->getList(searchParams);
 ```
 
 ### Policy
@@ -171,7 +171,7 @@ $policy = $acrosureClient->getPolicyManager()->get("<policy_id>");
 List your policies (with or without query).
 
 ```php
-$policies = $acrosureClient->getPolicyManager()->getList(query);
+$policies = $acrosureClient->getPolicyManager()->getList(searchParams);
 ```
 
 ### Data
